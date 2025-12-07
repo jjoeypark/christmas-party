@@ -12,6 +12,13 @@
       font-display: swap;
     }
 
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Regular.woff2') format('woff2');
+      font-display: swap;
+    }
+
+
     * {
       margin: 0;
       padding: 0;
@@ -19,7 +26,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #2D5A3D;
       min-height: 100vh;
       display: flex;
@@ -79,7 +86,13 @@
     }
 
     .dresscode {
-      background: #C94C4C;
+      background-color: #C94C4C;
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.3) 50%, transparent 50%),
+        linear-gradient(rgba(0,0,0,0.3) 50%, transparent 50%),
+        linear-gradient(90deg, rgba(0,0,0,0.2) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.2) 75%),
+        linear-gradient(rgba(0,0,0,0.2) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.2) 75%);
+      background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
       color: white;
       padding: 15px;
       border-radius: 12px;
@@ -112,18 +125,46 @@
       text-decoration: none;
       border-bottom: 1px solid #4A7C59;
     }
+
+    /* 눈 효과 */
+    .snowflakes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="snowflakes" id="snowflakes"></div>
   <div class="card">
-    <img src="https://soopool.art/img/infoac/NPC/Jingle/Jingle.png" alt="진글" class="character">
+    <img src="https://dodo.ac/np/images/5/54/Jingle_NH_Transparent.png" alt="루돌프" class="character">
     
     <h1 class="title">크리스마스 포틀락 파티</h1>
     <p class="subtitle">Merry Christmas!</p>
 
     <div class="info-row">
       <span class="info-label">날짜</span>
-      <span class="info-value">2024. 12. 19 (목)</span>
+      <span class="info-value">2025. 12. 19 (금)</span>
     </div>
     <div class="info-row">
       <span class="info-label">시간</span>
@@ -134,8 +175,8 @@
       <span class="info-value">해영빌딩 6층 1호</span>
     </div>
     <div class="info-row">
-      <span class="info-label">컨셉</span>
-      <span class="info-value">포틀락</span>
+      <span class="info-label">준비물</span>
+      <span class="info-value">음식과 마니또 선물</span>
     </div>
 
     <div class="dresscode">
@@ -152,5 +193,24 @@
       서울 강남구 개포로 240 → 지도보기
     </a>
   </div>
+
+  <script>
+    function createSnowflakes() {
+      const container = document.getElementById('snowflakes');
+      
+      for (let i = 0; i < 40; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.style.left = Math.random() * 100 + '%';
+        snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.width = (Math.random() * 12 + 4) + 'px';
+        snowflake.style.height = snowflake.style.width;
+        container.appendChild(snowflake);
+      }
+    }
+    
+    createSnowflakes();
+  </script>
 </body>
 </html>
