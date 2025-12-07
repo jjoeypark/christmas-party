@@ -1,1 +1,156 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>크리스마스 포틀락 파티</title>
+  <style>
+    @font-face {
+      font-family: 'Cafe24 Classic Type';
+      src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Cafe24ClassicType/Cafe24ClassicType.woff2') format('woff2'),
+           url('https://cdn.jsdelivr.net/gh/fonts-archive/Cafe24ClassicType/Cafe24ClassicType.woff') format('woff');
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #2D5A3D;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #FDF8F3;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 24px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .character {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-family: 'Cafe24 Classic Type', serif;
+      font-size: 1.6rem;
+      color: #2D5A3D;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #8B7355;
+      margin-bottom: 30px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #E8E8E8;
+    }
+
+    .info-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      color: #8B7355;
+    }
+
+    .info-value {
+      font-family: 'Cafe24 Classic Type', serif;
+      font-size: 0.95rem;
+      color: #2D5A3D;
+    }
+
+    .dresscode {
+      background: #C94C4C;
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+
+    .dresscode-label {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .dresscode-value {
+      font-family: 'Cafe24 Classic Type', serif;
+      font-size: 1.1rem;
+    }
+
+    .message {
+      font-size: 0.9rem;
+      color: #4A7C59;
+      line-height: 1.7;
+      margin-top: 20px;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #4A7C59;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border-bottom: 1px solid #4A7C59;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://soopool.art/img/infoac/NPC/Jingle/Jingle.png" alt="진글" class="character">
+    
+    <h1 class="title">크리스마스 포틀락 파티</h1>
+    <p class="subtitle">Merry Christmas!</p>
+
+    <div class="info-row">
+      <span class="info-label">날짜</span>
+      <span class="info-value">2024. 12. 19 (목)</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">시간</span>
+      <span class="info-value">PM 6:00</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">장소</span>
+      <span class="info-value">해영빌딩 6층 1호</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">컨셉</span>
+      <span class="info-value">포틀락</span>
+    </div>
+
+    <div class="dresscode">
+      <div class="dresscode-label">DRESS CODE</div>
+      <div class="dresscode-value">체크 무늬</div>
+    </div>
+
+    <p class="message">
+      올해도 수고 많았어요!<br>
+      2025년의 마지막 함께 따뜻한 연말 보내요 :)
+    </p>
+
+    <a href="https://map.kakao.com/link/search/서울 강남구 개포로 240" target="_blank" class="map-link">
+      서울 강남구 개포로 240 → 지도보기
+    </a>
+  </div>
+</body>
+</html>
