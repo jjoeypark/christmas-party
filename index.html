@@ -126,6 +126,26 @@
       border-bottom: 1px solid #4A7C59;
     }
 
+    /* 카운트다운 */
+    .countdown {
+      background: transparent;
+      color: #2D5A3D;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .countdown-timer {
+      font-family: 'Cafe24 Classic Type', serif;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+
     /* 눈 효과 */
     .snowflakes {
       position: fixed;
@@ -194,6 +214,12 @@
     </a>
   </div>
 
+    <div class="countdown">
+      <div class="countdown-label">파티까지 남은 시간</div>
+      <div class="countdown-timer" id="countdown">계산 중...</div>
+    </div>
+  </div>
+
   <script>
     function createSnowflakes() {
       const container = document.getElementById('snowflakes');
@@ -211,6 +237,30 @@
     }
     
     createSnowflakes();
+
+    // 카운트다운
+    function updateCountdown() {
+    const partyDate = new Date('2025-12-19T18:00:00');  // 파티 날짜
+    const now = new Date();                              // 현재 시간
+    const diff = partyDate - now;                        // 차이 계산
+
+    if (diff <= 0) {
+        document.getElementById('countdown').textContent = '파티 시작!';
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('countdown').textContent = 
+        `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+    }
+
+    updateCountdown();                    // 처음 한번 실행
+    setInterval(updateCountdown, 1000);   // 1초마다 반복
+
   </script>
 </body>
 </html>
